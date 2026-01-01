@@ -50,7 +50,8 @@ def notify_oncall_agent(context):
             "run_id": dag_run.run_id,
             "task_id": task_instance.task_id,
             "scenario": scenario,
-            "original_exception": str(exception)
+            "original_exception": str(exception),
+            "parent_incident_id": dag_run.conf.get('parent_incident_id') if dag_run.conf else None
         }
     }
     
